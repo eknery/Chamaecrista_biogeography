@@ -30,7 +30,7 @@ for(i in 1:length(fasta_list)){
 ingroup_names = sort(unique(ingroup_names))
 
 ### export Chamaecrista names
-saveRDS(ingroup_names, "1_ingroup_sequences/ingroup_names.RDS")
+saveRDS(ingroup_names, "1_ingroup/ingroup_names.RDS")
 
 ### getting species per locus
 loci = c()
@@ -43,7 +43,7 @@ for(i in 1:length(fasta_list)){
 ingroup_loci = cbind(ingroup_names, loci)
 
 ### export
-write.table(ingroup_loci , "1_ingroup_sequences/ingroup_loci.csv",
+write.table(ingroup_loci , "1_ingroup/ingroup_loci.csv",
             row.names = F,
             sep=",",
             quote = F
@@ -58,7 +58,7 @@ ingroup_common_names = ingroup_loci %>%
   pull()
 
 ### export Chamaecrista names
-saveRDS(ingroup_common_names, "1_ingroup_sequences/ingroup_common_names.RDS")
+saveRDS(ingroup_common_names, "1_ingroup/ingroup_common_names.RDS")
 
 ################################# SELECT INGROUP  #############################
 
@@ -70,10 +70,8 @@ for(i in 1:length(fasta_list)){
 }
 
 
-### exporting fasta
-
-## for concatenation
-dir_out = "1_ingroup_sequences/for_concatenation/"
+### exporting sequences from ingroup
+dir_out = "1_ingroup/ingroup_sequences/"
 for(i in 1:length(my_fasta_list)){
   fasta_name = paste0(names(my_fasta_list)[i], ".fasta")
   write.phyDat(x = my_fasta_list[[i]], 

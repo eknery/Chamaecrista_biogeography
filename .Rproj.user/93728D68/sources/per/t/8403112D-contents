@@ -5,7 +5,7 @@ if(!require("phangorn")) install.packages("phangorn"); library("phangorn")
 if(!require("ape")) install.packages("ape"); library("ape")
 
 ### file names
-dir_input = "1_ingroup_sequences/for_concatenation/"
+dir_input = "1_ingroup/ingroup_sequences/"
 file_names = list.files(dir_input)
 
 ### loading data
