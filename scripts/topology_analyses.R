@@ -72,7 +72,7 @@ pcoa_plot = ggplot(data = pcoa_df,
        aes(x=as.numeric(Axis.1),
            y=as.numeric(Axis.2),
            color=locus)) +
-  geom_point(size = 2, alpha = 0.5) +
+  geom_point(size = 1.5, alpha = 0.5) +
   scale_colour_manual(values=c("ETS"= "darkred",
                                "ITS"= "darkorange",
                                "matK" = "darkblue",
@@ -84,4 +84,11 @@ pcoa_plot = ggplot(data = pcoa_df,
   theme(panel.background=element_rect(fill="white"),
         panel.grid=element_line(colour=NULL),
         panel.border=element_rect(fill=NA,colour="black"),
-        axis.title=element_text(size=13,face="bold"))
+        axis.title=element_text(size=12,face="bold"),
+        legend.position = "bottom")
+
+### export plot
+tiff("3_topology_results/pcoa_RF_dist.tiff", 
+     units="cm", width=8.5, height=8, res=600)
+ pcoa_plot
+dev.off()
