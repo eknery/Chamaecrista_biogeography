@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_bootstrap_trees/MP_trees/"
+dir_input = "2_bootstrap_trees/MP_trees_clean/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -19,7 +19,7 @@ for(i in 1:length(file_names) ){
 }
 
 ### species with all loci sequenced 
-ingroup_common_names = readRDS("1_ingroup_sequences/ingroup_common_names.RDs")
+ingroup_common_names = readRDS("1_ingroup/ingroup_common_names.RDs")
 
 ################################ PROCESSING TREES #############################
 
@@ -61,26 +61,31 @@ for(i in 1:length(pruned_trees_list)){
   locus_rep = rep(locus_name, length.out= length(pruned_trees_list[[i]]) )
   locus = c(locus, locus_rep)
 }
- 
 
 ### PCOA
 pcoa = pcoa(dist, correction="none", rn=NULL)
 pcoa_df = as.data.frame(cbind(locus, pcoa$vectors))
+### get % var 
+pc_rel_var = pcoa$values$Relative_eig
+### axis names
+pc_axis_1 = paste0("PCoA (", round(pc_rel_var[1]*100, 2), "%)" )
+pc_axis_2 = paste0("PCoA (", round(pc_rel_var[2]*100, 2), "%)" )
 
 ### plot pcoa
 pcoa_plot = ggplot(data = pcoa_df,
        aes(x=as.numeric(Axis.1),
            y=as.numeric(Axis.2),
            color=locus)) +
-  geom_point(size = 1.5, alpha = 0.5) +
+  geom_point(size = 2, alpha = 0.5) +
   scale_colour_manual(values=c("ETS"= "darkred",
                                "ITS"= "darkorange",
-                               "matK" = "darkblue",
+                               "matK" = "darkorchid",
                                "trnDT" = "darkgreen",
-                               "trnLF" = "darkgoldenrod"
+                               "trnLF" = "darkblue"
                                )
                       )+
-  labs(x="PCo1 (24.8%)", y="PCo2 (16.5%)")+
+  labs(x= pc_axis_1, 
+       y= pc_axis_2)+
   theme(panel.background=element_rect(fill="white"),
         panel.grid=element_line(colour=NULL),
         panel.border=element_rect(fill=NA,colour="black"),
