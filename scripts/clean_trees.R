@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_bootstrap_trees/MP_trees/"
+dir_input = "3_cassieae/MP_trees/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -18,10 +18,13 @@ for(i in 1:length(file_names) ){
                                     pattern = ".tree")
 }
 
-############################### REMOVING NODE INFO ############################
+############################### CLEAN TREES ############################
 
+### select output dir
+dir_out = "3_cassieae/MP_trees_clean/"
+### remove node info
 tree_list_rag = tree_list
-for(i in 1:length(tree_list)){
+for(i in 1:length(tree_list) ){ #
   tree_name = paste0(names(tree_list)[i] , ".tree")
   for(j in 1:length(tree_list[[i]])){
     ## force dichotomy
@@ -31,7 +34,7 @@ for(i in 1:length(tree_list)){
   }
   ## export
   write.tree(phy =  tree_list_rag[[i]],
-             file = paste0("2_bootstrap_trees/clean_trees/",tree_name)
+             file = paste0(dir_out,tree_name)
   )
 }
 
