@@ -1,0 +1,28 @@
+{
+    "id": "149A5B68",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1714160754545.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "id": "0e67082ec4f14966ba2c593255919e79",
+        "name": "pruned_trees_list",
+        "title": "pruned_trees_list",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1714158324,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1714160754545,
+    "read_only": false,
+    "read_only_alternatives": []
+}
