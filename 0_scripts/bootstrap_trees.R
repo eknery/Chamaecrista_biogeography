@@ -5,7 +5,7 @@ if(!require("phangorn")) install.packages("phangorn"); library("phangorn")
 if(!require("ape")) install.packages("ape"); library("ape")
 
 ### file names
-dir_input = "2_cassieae/sequences_rogueless/"
+dir_input = "1_initial_sequences/nery_aligments/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -21,13 +21,13 @@ for(i in 1:length(file_names) ){
 
 ############################ BOOTSTRAP TREES ####################################
 
-dir_out = "2_cassieae/MP_trees_rogueless/"
+dir_out = "2_cassieae_nery/boots_trees/"
 for(i in 1:length(fasta_list) ){
   ## tree name
   tree_name = paste0(names(fasta_list)[i], ".tree")
   ## bootstrap MP trees
   boots_mp_trees = bootstrap.phyDat(fasta_list[[i]], 
-                                    FUN = pratchet, 
+                                    FUN = function(x)NJ(dist.hamming(x)), # pratchet
                                     bs = 100)
   ## export
   write.tree(phy =  boots_mp_trees,

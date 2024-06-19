@@ -5,8 +5,11 @@ if(!require("phangorn")) install.packages("phangorn"); library("phangorn")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### input diretory
-dir_input = "2_chamaecrista/sequences_rogueless/"
+dir_input = "1_initial_sequences/nery_aligments/"
 file_names = list.files(dir_input)
+
+## drop matK
+#file_names = file_names[file_names != "matK.fasta"]
 
 ### loading data
 fasta_list = list()
@@ -47,7 +50,7 @@ for(i in 1:length(my_fasta_list)){
 }
 
 ### exporting sequences 
-dir_out = "3_final_sequences/chamaecrista_concatenation/"
+dir_out = "3_final_sequences/cassieae_concatenation_nery/"
 for(i in 1:length(my_fasta_list)){
   fasta_name = paste0(names(my_fasta_list)[i], ".fasta")
   write.phyDat(x = my_fasta_list[[i]], 

@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_cassieae/MP_trees_rogueless_clean/"
+dir_input = "2_cassieae_nery/boots_trees_clean/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -27,7 +27,7 @@ for(i in 1:length(tree_list)){
   all_names = c(all_names, some_names)
 }
 ### into one dataframe
-all_names = unique(all_names)
+all_names = sort(unique(all_names))
 
 ### get names per locus
 names_loci =  all_names
@@ -122,7 +122,7 @@ pcoa_plot = ggplot(data = pcoa_df,
         legend.position = "bottom")
 
 ### export plot
-tiff("2_cassieae/pcoa_MP_trees_rogueless.tiff", 
+tiff("2_cassieae_nery/pcoa_boots_trees.tiff", 
      units="cm", width=10, height=9, res=600)
  pcoa_plot
 dev.off()

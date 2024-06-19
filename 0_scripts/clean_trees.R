@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_cassieae/MP_trees_rogueless/"
+dir_input = "2_cassieae_nery/boots_trees/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -21,7 +21,7 @@ for(i in 1:length(file_names) ){
 ############################### CLEAN TREES ############################
 
 ### select output dir
-dir_out = "2_cassieae/MP_trees_rogueless_clean/"
+dir_out = "2_cassieae_nery/boots_trees_clean/"
 ### remove node info
 tree_list_rag = tree_list
 for(i in 1:length(tree_list) ){ #
