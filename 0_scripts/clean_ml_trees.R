@@ -10,20 +10,24 @@ if(!require("ips")) install.packages("ips"); library("ips")
 dir_input = "4_ml_trees/"
 tree_name = "ml_iq_consensus.tree"
 
-tree = read.tree(file = paste0(dir_input, tree_name))
-plot(tree, cex=0.5)
+### import
+ctree = read.tree(file = paste0(dir_input, tree_name))
+plot(ctree, cex=0.5)
 
-ctree = collapseUnsupportedEdges(phy = tree,
+cutoff = 90
+### colapse?
+ctree = collapseUnsupportedEdges(phy = ctree,
                         value = "node.label", 
-                        cutoff = 75)
+                        cutoff = cutoff)
 plot(ctree, cex =0.5)
 
+### get rid of info
 ctree$edge.length = NULL
 ctree$node.label = NULL
 
-
-dir_out = "4_ml_trees/colapsed_trees/"
+### export
+dir_out = "4_ml_trees/clean_trees/"
 write.tree(phy =  ctree,
-           file = paste0(dir_out,tree_name)
+           file = paste0(dir_out,"ml_", cutoff,".tree")
            )
            

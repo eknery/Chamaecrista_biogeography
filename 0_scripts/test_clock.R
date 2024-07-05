@@ -7,7 +7,7 @@ if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 if(!require("treedater")) install.packages("treedater"); library("treedater")
 
 ### file names
-dir_input = "2_cassieae/ML_trees/"
+dir_input = "4_ml_trees/"
 file_names = list.files(dir_input)
 
 ### loading data

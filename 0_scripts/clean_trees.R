@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_cassieae_nery/boots_trees/"
+dir_input = "2_sequence_evaluation/boots_trees/"
 file_names = list.files(dir_input)
 
 ### loading data

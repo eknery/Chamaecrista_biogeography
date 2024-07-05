@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### input diretory
-dir_input = "2_cassieae/sequences_rogueless/"
+dir_input = "1_initial_sequences/"
 file_names = list.files(dir_input)
 
 ### loading data
