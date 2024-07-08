@@ -11,7 +11,7 @@ all_bins = c()
 
 for(code in all_codes){
   ## initial bin
-  bin = c(0,0,0,0,0,0,0,0,0,0)
+  bin = c(0,0,0,0,0,0,0,0)
   ## sum
   if( grepl("A", code) ){ bin[1] = 1}
   if( grepl("B", code) ){ bin[2] = 1}
