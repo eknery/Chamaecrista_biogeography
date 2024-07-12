@@ -71,13 +71,3 @@ res_plot = plot_BioGeoBEARS_results(results_object= res_DEC,
                          tr=tr, 
                          tipranges=tipranges,
                          plotlegend = F)
-
-
-## node marginal ML
-relprobs_matrix = res_DEC$ML_marginal_prob_each_state_at_branch_top_AT_node
-## node states
-state_labels=c("A", "B", "C", "D", "E", "F", "G", "H")
-node_states = get_ML_states_from_relprobs(relprobs= relprobs_matrix, 
-                                          statenames= state_labels, 
-                                          returnwhat = "states", 
-                                          if_ties = "takefirst")
