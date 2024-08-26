@@ -58,7 +58,7 @@ save(res_dec, file="7_biogeo_results/macro_DEC_default.Rdata")
 ###  biogeobears scripts
 scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
 
-res_plot = plot_BioGeoBEARS_results(results_object= res_DEC, 
+res_plot = plot_BioGeoBEARS_results(results_object= res_dec, 
                          addl_params=list("j"),
                          plotwhat="text", 
                          label.offset=0.7, 

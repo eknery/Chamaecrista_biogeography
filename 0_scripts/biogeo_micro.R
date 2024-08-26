@@ -5,7 +5,7 @@ library("cladoRcpp")
 library("BioGeoBEARS")
 
 ### phylogenetic tree location
-trfn = "5_posterior/mcc_chamaecrista.tree"
+trfn = "5_posterior/mcc.tree"
 tr = read.tree(file = trfn)
 
 ### reading range data
@@ -17,6 +17,27 @@ tipranges
 
 ### setting maximum number of areas occupied for reconstructions
 max_range_size = max(rowSums(dfnums_to_numeric(tipranges@df)))
+
+###  biogeobears scripts
+scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
+
+### my function 
+fast_plot = function(res){
+  plot_BioGeoBEARS_results(results_object= res, 
+                           addl_params=list("j"),
+                           plotwhat="text", 
+                           label.offset=0.7, 
+                           tipcex=0.15, 
+                           statecex=0.4, 
+                           titlecex=0.8, 
+                           plotsplits= F, 
+                           cornercoords_loc= scriptdir, 
+                           include_null_range= F, 
+                           tr=tr, 
+                           tipranges=tipranges,
+                           plotlegend = F)
+}
+
 
 ############################# MODEL 0 ###################################
 
@@ -49,6 +70,9 @@ dec0$num_cores_to_use = 1
 ### fitting DEC !
 res_dec0 = bears_optim_run(dec0)
 
+### plot
+fast_plot(res = res_dec0)
+
 ### save fitted model
 save(res_dec0, file="7_biogeo_results/micro_DEC_0.Rdata")
 
@@ -68,7 +92,7 @@ dec1 = define_BioGeoBEARS_run()
 dec1$trfn = trfn
 
 ### location of the geography text file
-dec1$geogfn = geog_fn
+dec1$geogfn = geogfn
 
 ### Input the maximum range size
 dec1$max_range_size = max_range_size
@@ -107,6 +131,9 @@ dec1$num_cores_to_use = 1
 
 ### fitting DEC !
 res_dec1 = bears_optim_run(dec1)
+
+### plot
+fast_plot(res = res_dec1)
 
 ### save fitted model
 save(res_dec1, file="7_biogeo_results/micro_DEC_1.Rdata")
@@ -170,11 +197,8 @@ res_dec2 = bears_optim_run(dec2)
 ### save fitted model
 save(res_dec2, file="7_biogeo_results/micro_DEC_2.Rdata")
 
-###  biogeobears scripts
-scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
-
 ### plotting
-res_plot = plot_BioGeoBEARS_results(results_object= res_dec2, 
+res_plot = plot_BioGeoBEARS_results(results_object= res_dec0, 
                                     addl_params=list("j"),
                                     plotwhat="text", 
                                     label.offset=0.7, 

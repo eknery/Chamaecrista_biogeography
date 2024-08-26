@@ -12,6 +12,9 @@ in_tree = "mcc.tree"
 ### input tree
 tree = read.tree(file = paste0(dir_input, in_tree))
 
+## ladderize
+tree = ladderize(tree)
+
 ### tips to keep
 keep_names = tree$tip.label[grepl("C_", tree$tip.label)]
 

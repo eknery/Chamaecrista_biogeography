@@ -9,9 +9,11 @@ sp = sp_code$sp
 all_codes = sp_code$code
 all_bins = c()
 
+n_areas = 9
+
 for(code in all_codes){
   ## initial bin
-  bin = c(0,0,0,0,0,0,0,0)
+  bin = rep(0, n_areas)
   ## sum
   if( grepl("A", code) ){ bin[1] = 1}
   if( grepl("B", code) ){ bin[2] = 1}
