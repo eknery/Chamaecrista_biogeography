@@ -81,7 +81,7 @@ save(res_dec0, file="7_biogeo_results/micro_DEC_0.Rdata")
 ### https://groups.google.com/g/biogeobears/c/XXaJqmI232o
 
 ### time strata and dispersal matrices
-timesfn = "6_biogeo_data/model1_times.txt"
+timesfn = "6_biogeo_data/model_times.txt"
 areas_allowed_fn = "6_biogeo_data/model1_areas_allowed.txt"
 dispersal_multipliers_fn = "6_biogeo_data/model1_dispersal_multi.txt"
 
@@ -143,7 +143,7 @@ save(res_dec1, file="7_biogeo_results/micro_DEC_1.Rdata")
 ### https://groups.google.com/g/biogeobears/c/XXaJqmI232o
 
 ### time strata and dispersal matrices
-timesfn = "6_biogeo_data/model1_times.txt"
+timesfn = "6_biogeo_data/model_times.txt"
 areas_allowed_fn = "6_biogeo_data/model2_areas_allowed.txt"
 dispersal_multipliers_fn = "6_biogeo_data/model2_dispersal_multi.txt"
 
@@ -194,20 +194,9 @@ dec2$num_cores_to_use = 1
 ### fitting DEC !
 res_dec2 = bears_optim_run(dec2)
 
+### plot
+fast_plot(res = res_dec2)
+
 ### save fitted model
 save(res_dec2, file="7_biogeo_results/micro_DEC_2.Rdata")
 
-### plotting
-res_plot = plot_BioGeoBEARS_results(results_object= res_dec0, 
-                                    addl_params=list("j"),
-                                    plotwhat="text", 
-                                    label.offset=0.7, 
-                                    tipcex=0.15, 
-                                    statecex=0.4, 
-                                    titlecex=0.8, 
-                                    plotsplits= F, 
-                                    cornercoords_loc= scriptdir, 
-                                    include_null_range= F, 
-                                    tr=tr, 
-                                    tipranges=tipranges,
-                                    plotlegend = F)
