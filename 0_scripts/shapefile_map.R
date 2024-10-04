@@ -13,26 +13,26 @@ shp <- st_read(dir_shp)
 unique(shp$Provincias)
 
 province_col = c(
-"Guianan Lowlands province" = "mediumseagreen",
-"Guianan province" = "mediumseagreen",
-"Imeri province" = "mediumseagreen",
-"Napo province" = "mediumseagreen",
-"Para province" = "mediumseagreen",
-"Roraima province" = "mediumseagreen",
-"Madeira province" = "mediumseagreen",
-"Rondonia province" = "mediumseagreen",
-"Ucayali province" = "mediumseagreen",
-"Yungas province" = "mediumseagreen",
-"Xingu-Tapajos province" = "mediumseagreen",
+"Guianan Lowlands province" = "forestgreen",
+"Guianan province" = "forestgreen",
+"Imeri province" = "forestgreen",
+"Napo province" = "forestgreen",
+"Para province" = "forestgreen",
+"Roraima province" = "forestgreen",
+"Madeira province" = "forestgreen",
+"Rondonia province" = "forestgreen",
+"Ucayali province" = "forestgreen",
+"Yungas province" = "forestgreen",
+"Xingu-Tapajos province" = "forestgreen",
 
 "Cerrado province" = "pink",
 "Caatinga province" = "lightgoldenrod",
 "Chapada Diamantina province" = "darkred",
 "Southern Espinhaco province" = "darkred",
   
-"Araucaria Forest province" = "palegreen",
-"Atlantic province"= "palegreen",
-"Parana Forest province"= "palegreen",
+"Araucaria Forest province" = "lightgreen",
+"Atlantic province"= "lightgreen",
+"Parana Forest province"= "lightgreen",
 
 "Chiapas Highlands province" = "lightblue",
 "Sierra Madre Occidental province" = "lightblue",
@@ -75,21 +75,22 @@ province_col = c(
 "Pampean province" = "white",
 "Esteros del Ibera province" = "white",
 "Monte province" = "white",
-"N/A" = "gray20"
+"N/A" = "darkblue"
 )
 
 ### export dec
 tiff("7_biogeo_results/map.tiff",
-     units="cm", width=7, height=14, res=900)
+     units="cm", width=7, height=6.5, res=900)
 ggplot(shp)+
-  geom_sf(aes(fill=Provincias)) +
+  geom_sf(aes(fill=Provincias),
+          col = "black") +
   scale_fill_manual(values = province_col,
                     labels = NULL) +
   
   theme(panel.background=element_rect(fill="white"),
         panel.grid=element_line(colour=NULL),
         panel.border=element_rect(fill=NA,colour="black"),
-        axis.title=element_text(size=12,face="bold"),
+        axis.title=element_text(size=10,face="bold"),
         legend.position = "none")
 dev.off()
 
