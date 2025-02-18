@@ -1,0 +1,6 @@
+spp_marker = read.table("spp_marker.csv", sep = ",", h= T)
+
+
+spp_marker = cbind(all_names, spp_marker)
+
+write.csv(spp_marker, "spp_marker2.csv", row.names = F)
