@@ -141,7 +141,7 @@ leg_1 = area_col
 leg_2 = comb_area_col[sort(names(comb_area_col))[1:9] ]
 leg_3 = comb_area_col[sort(names(comb_area_col))[10:17] ]
 
-### export datamatrix
+### export figure
 tiff("8_figures/biogeo_plot.tiff",
      units="cm", 
      width= 9, 
@@ -193,41 +193,3 @@ tiff("8_figures/biogeo_plot.tiff",
     cex.axis=0.5
 )
 dev.off()
-
-
-
-
-
-
-
-# ### export dec
-# tiff("7_biogeo_results/dec_plot.tiff",
-#      units="cm", width=7, height=14, res=900)
-#   plotTree(tree= tr,
-#            lwd = 0.5,
-#            fsize= 0.1, 
-#            ftype= "i")
-#    nodelabels(pch = 22, 
-#              cex= 0.5,
-#              col = "black",
-#              bg = anc_state_col
-#              )
-#   axisPhylo(pos= -0.1, 
-#             font=3, 
-#             cex.axis=0.5
-#             )
-# dev.off()
-# 
-# ### export heatmap
-# tiff("7_biogeo_results/heatmap_plot.tiff",
-#      units="cm", width=7, height=16.5, res=900)
-# phylo.heatmap(tree = tr,
-#               X= states_num,
-#               fsize= c(0.1,0.5,0.1),
-#               colors= area_col,
-#               split= c(0.9,0.1),
-#               standardize= T,
-#               legend = F
-# )
-# dev.off()
-# 
