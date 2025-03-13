@@ -19,6 +19,7 @@ teststable = NULL
 lnl0 = get_LnL_from_BioGeoBEARS_results_object(res_dec0)
 lnl1 = get_LnL_from_BioGeoBEARS_results_object(res_dec1)
 lnl2 = get_LnL_from_BioGeoBEARS_results_object(res_dec2)
+LnL_vals = c(lnl0, lnl1,lnl2)
 
 ### parameter values
 param0 = extract_params_from_BioGeoBEARS_results_object(
@@ -42,6 +43,19 @@ param2 = extract_params_from_BioGeoBEARS_results_object(
   paramsstr_digits= 4
 )
 
-calc_AIC_vals(LnL_vals = c(lnl0, lnl1,lnl2),
-              nparam_vals = c(2,2,2)
-              )
+### collect parameter values
+n_param_vals = c(param0$numparams,param1$numparams,param2$numparams)
+
+### calculate AIC
+aic = calc_AIC_vals(
+  LnL_vals = LnL_vals,
+  nparam_vals = n_param_vals
+)
+
+### in a single table
+model_table =as.data.frame(cbind(LnL_vals, n_param_vals, aic))
+
+### akaike weights
+AkaikeWeights_on_summary_table(model_table,
+                               colname_to_use ="aic", 
+                               add_to_table = F)
