@@ -67,7 +67,7 @@ statenames = areas_list_to_states_list_new(
 ### relative probability of each states for each node
 relprobs_matrix = res_dec2$ML_marginal_prob_each_state_at_branch_top_AT_node
 
-### get maximum probiBIlity values
+### get maximum probibility values
 ml_probs = get_ML_probs(relprobs_matrix)
 
 ### get states with maximum probability values 
@@ -79,7 +79,7 @@ ml_states = get_ML_states_from_relprobs(
 )
 
 ### only ancestral states
-anc_states = ml_states[n_tips:(n_tips+n_anc)]
+anc_states = ml_states[(n_tips+1):(n_tips+n_anc)]
 
 ################################### PLOT RESULTS ###############################
 
