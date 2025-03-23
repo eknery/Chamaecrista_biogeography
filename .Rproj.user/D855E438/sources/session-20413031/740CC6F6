@@ -1,0 +1,27 @@
+{
+    "id": "740CC6F6",
+    "path": "~/GitHub/Chamaecrista_biogeography/scripts/BSM.R",
+    "project_path": "scripts/BSM.R",
+    "type": "r_source",
+    "hash": "4051124467",
+    "contents": "",
+    "dirty": false,
+    "created": 1742763630804.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "131,0",
+        "scrollLine": "124"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1742771288,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1742771288217,
+    "read_only": false,
+    "read_only_alternatives": []
+}

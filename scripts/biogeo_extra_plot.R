@@ -11,7 +11,7 @@ inner_node_probs = as.data.frame(relprobs_matrix[(1+n_tips):(n_tips+n_anc),])
 colnames(inner_node_probs) = all_states
 
 ### export figure
-tiff("8_figures/biogeo_plot_extra.tiff",
+tiff("8_figures/biogeo_plot_pie.tiff",
      units="cm", 
      width= 9, 
      height= 18,
@@ -20,7 +20,7 @@ plotTree(
   tree = ladderize(tr),
   type="phylogram",
   fsize=0.10,
-  lwd = 0.1
+  lwd = 0.3
 )
 nodelabels(
   node= (1+n_tips):(n_tips+n_anc), 
@@ -53,3 +53,4 @@ add.simmap.legend(
   y=100
 )
 dev.off()
+

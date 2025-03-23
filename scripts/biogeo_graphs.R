@@ -83,7 +83,7 @@ anc_states = ml_states[(n_tips+1):(n_tips+n_anc)]
 
 ################################### PLOT RESULTS ###############################
 
-source("0_scripts/function_mix_color.R")
+source("scripts/function_mix_color.R")
 
 ### colors for each area
 area_col = c(
@@ -107,7 +107,7 @@ for(i in 1:length(area_col) ){
 }
 names(col_list) = names(area_col)
 
-### create colors for ancestral states
+### create colors for reconstructed ancestral states
 uni_states = sort(unique(anc_states) )
 state_col = c()
 for(one_state in uni_states){
@@ -132,8 +132,20 @@ names(state_col) = uni_states
 ### organize into vector
 anc_state_col = c()
 for(anc in anc_states){
- anc_state_col = c(anc_state_col, state_col[anc])
+  anc_state_col = c(anc_state_col, state_col[anc])
 }
+
+### colors for non-reconstructed states
+all_states = unlist(statenames)
+non_states = all_states[!all_states %in% names(state_col)]
+non_col = rep("black", length(non_states))
+names(non_col) = non_states
+full_col = c(state_col, non_col)
+full_col = full_col[all_states]
+
+### inner node probabilities
+inner_node_probs = as.data.frame(relprobs_matrix[(1+n_tips):(n_tips+n_anc),])
+colnames(inner_node_probs) = all_states
 
 ### legend vectors
 comb_area_col = state_col[!names(state_col)%in%names(area_col)]
@@ -141,8 +153,56 @@ leg_1 = area_col
 leg_2 = comb_area_col[sort(names(comb_area_col))[1:9] ]
 leg_3 = comb_area_col[sort(names(comb_area_col))[10:17] ]
 
-### export figure
-tiff("8_figures/biogeo_plot.tiff",
+### export pie chart
+tiff("9_figures/biogeo_plot_pie.tiff",
+     units="cm", 
+     width= 9, 
+     height= 18,
+     res=900)
+plotTree.datamatrix(
+  tree = tr,
+  X= states_bin,
+  fsize= 0.15,
+  header = F, 
+  colors = col_list, 
+  space = 0, 
+  xexp = 1.12,
+  yexp = 0.98
+)
+nodelabels(
+  node= (1+n_tips):(n_tips+n_anc), 
+  pie = inner_node_probs,
+  piecol = full_col, 
+  cex= 0.5
+)
+add.simmap.legend(
+  colors= leg_1,
+  fsize= 0.8,
+  shape="square",
+  prompt=FALSE,
+  x=0,
+  y=100
+)
+add.simmap.legend(
+  colors= leg_2,
+  fsize= 0.8,
+  shape="square",
+  prompt=FALSE,
+  x=10,
+  y=100
+)
+add.simmap.legend(
+  colors= leg_3,
+  fsize= 0.8,
+  shape="square",
+  prompt=FALSE,
+  x=30,
+  y=100
+)
+dev.off()
+
+### export square
+tiff("9_figures/biogeo_plot_square.tiff",
      units="cm", 
      width= 9, 
      height= 18,
