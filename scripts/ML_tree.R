@@ -22,25 +22,31 @@ for(i in 1:length(file_names) ){
 
 ########################### INFERING ML TREE ###############################
 
-### choose a locus !!!
-locus_name = "trnDT"
-one_fasta = fasta_list[[locus_name]]
-
-### fit subsitution models
-model_fit = modelTest(one_fasta, model = "all")
-## pick the best model
-best_model = model_fit[model_fit$AICc == min(model_fit$AICc),]
-## parameter estimates from best model
-best_fit = as.pml(best_model, best_model$Model)
-
-### optimize tree
-ml_tree = pml_bb(x = best_fit, 
-                 rearrangements="NNI",
-                 control = pml.control(trace = 0))
 ## select output dir
-dir_out = "2_cassieae/ML_trees/"
-## export tree
-write.tree(phy =  ml_tree$tree,
-           file = paste0(dir_out,locus_name,".tree")
-)
+dir_out = "2_sequence_evaluation/ML_trees/"
+
+### loci names
+loci_names = sub(".fasta", "", file_names)
+
+### loop
+for(locus_name in loci_names){
+  ### pick one aligment
+  one_fasta = fasta_list[[locus_name]]
+  ### ML fits
+  ml_fits = bootstrap.phyDat(
+    x = one_fasta, 
+    FUN = function(x)optim.pml(pml(NJ(dist.ml(x)), data = x), model = "GTR"), # pratchet
+    bs = 100
+  )
+  ### ML trees
+  ml_trees = list()
+  for(i in 1:length(ml_fits)){
+    ml_trees[[i]] = ml_fits[[i]]$tree
+  }
+  ## export trees
+  write.tree(phy =  ml_trees,
+             file = paste0(dir_out,locus_name,".tree")
+  )
+  print(paste0("ML bootstrap done: ", locus_name))
+}
 

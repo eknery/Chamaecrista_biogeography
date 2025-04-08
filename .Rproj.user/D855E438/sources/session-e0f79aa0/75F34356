@@ -1,0 +1,26 @@
+{
+    "id": "75F34356",
+    "path": "~/GitHub/Chamaecrista_biogeography/scripts/ML_tree.R",
+    "project_path": "scripts/ML_tree.R",
+    "type": "r_source",
+    "hash": "1203978673",
+    "contents": "",
+    "dirty": false,
+    "created": 1743201204481.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "34,6",
+        "scrollLine": "34"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1743209746,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1743209746780,
+    "read_only": false,
+    "read_only_alternatives": []
+}

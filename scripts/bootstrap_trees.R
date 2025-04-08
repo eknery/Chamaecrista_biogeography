@@ -21,19 +21,21 @@ for(i in 1:length(file_names) ){
 
 ############################ BOOTSTRAP TREES ####################################
 
-dir_out = "2_cassieae_nery/boots_trees/"
+dir_out = "2_sequence_evaluation/"
 for(i in 1:length(fasta_list) ){
   ## tree name
   tree_name = paste0(names(fasta_list)[i], ".tree")
   ## bootstrap MP trees
-  boots_mp_trees = bootstrap.phyDat(fasta_list[[i]], 
-                                    FUN = function(x)NJ(dist.hamming(x)), # pratchet
-                                    bs = 100)
+  boots_nj_trees = bootstrap.phyDat(
+    fasta_list[[i]], 
+    FUN = function(x)NJ(dist.hamming(x)), # pratchet
+    bs = 100
+  )
   ## export
-  write.tree(phy =  boots_mp_trees,
+  write.tree(phy =  boots_nj_trees,
              file = paste0(dir_out, tree_name)
              )
   ## warn
-  print(paste0("MP trees done: ",tree_name))
+  print(paste0("NJ trees done: ",tree_name))
   
 }

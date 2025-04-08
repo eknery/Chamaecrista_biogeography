@@ -42,7 +42,6 @@ colnames(states_num) = colnames(states_bin)
 
 ### name of areas
 areanames = names(tipranges@df)
-areanames
 
 ### setting maximum number of areas occupied 
 max_range_size = max(rowSums(dfnums_to_numeric(tipranges@df)))

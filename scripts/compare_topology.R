@@ -6,7 +6,7 @@ if(!require("ape")) install.packages("ape"); library("ape")
 if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 
 ### file names
-dir_input = "2_sequence_evaluation/boots_trees_clean/"
+dir_input = "2_sequence_evaluation/ml_trees/"
 file_names = list.files(dir_input)
 
 ### loading data
@@ -68,14 +68,16 @@ for(i in 1:length(pruned_trees_list)){
 ################################ CONGRUENCE ANALYSES ##########################
 
 ### distance
-dist = RF.dist(c(pruned_trees_list[[1]],  
-                    pruned_trees_list[[2]],
-                    pruned_trees_list[[3]],
-                    pruned_trees_list[[4]],
-                    pruned_trees_list[[5]]
-),
-tree2 = NULL, 
-normalize = T)
+dist = RF.dist(
+  c(pruned_trees_list[[1]],  
+    pruned_trees_list[[2]],
+    pruned_trees_list[[3]],
+    pruned_trees_list[[4]],
+    pruned_trees_list[[5]]
+    ),
+  tree2 = NULL, 
+  normalize = T
+)
 
 ### getting vector with names for each distance
 locus = c()
@@ -122,7 +124,7 @@ pcoa_plot = ggplot(data = pcoa_df,
         legend.position = "bottom")
 
 ### export plot
-tiff("2_cassieae_nery/pcoa_boots_trees.tiff", 
+tiff("2_sequence_evaluation/pcoa_ml_trees.tiff", 
      units="cm", width=10, height=9, res=600)
  pcoa_plot
 dev.off()
