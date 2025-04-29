@@ -1,0 +1,7 @@
+locus,n,nfocal,seqLength,bestModel
+ETS,182,176,435,K80+G(4)
+ITS,229,202,767,TIM1+G(4)+I
+matK,136,111,1707,TVM+G(4)+I
+trnDT,190,181,1350,TVM+G(4)
+trnLF,220,198,991,TPM1u+G(4)
+Concatenated,281,231,5250,GTR+G(4)+I

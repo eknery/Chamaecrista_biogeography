@@ -19,7 +19,7 @@ for(i in 1:length(file_names) ){
                                     pattern = ".fasta")
 }
 
-#### data frame
+#### data frame for results
 best_models <- data.frame(
   locus = character(), 
   n = character(),
@@ -29,7 +29,9 @@ best_models <- data.frame(
 )
 
 ### Loop through each alignment file
-for (i in 2:length(fasta_list)) {
+for (i in 1:length(fasta_list)) {
+  ## one aligment
+  one_fasta = fasta_list[[i]]
   ## fasta name
   locus = names(fasta_list)[i]
   ## number of sequences
@@ -38,8 +40,6 @@ for (i in 2:length(fasta_list)) {
   nfocal = sum(grepl("C_", names(one_fasta) ))
   ## sequence length
   seqLength = length(one_fasta[[1]])
-  ## one aligment
-  one_fasta = fasta_list[[i]]
   ## fit models
   modelfits = modelTest(
     object = one_fasta, 
