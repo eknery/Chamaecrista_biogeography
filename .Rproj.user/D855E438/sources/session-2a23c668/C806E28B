@@ -1,0 +1,27 @@
+{
+    "id": "C806E28B",
+    "path": "~/GitHub/Chamaecrista_biogeography/scripts/subs_model_fit.R",
+    "project_path": "scripts/subs_model_fit.R",
+    "type": "r_source",
+    "hash": "2007952542",
+    "contents": "",
+    "dirty": false,
+    "created": 1745950419638.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "64,20",
+        "scrollLine": "49"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1745955067,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1745955067629,
+    "read_only": false,
+    "read_only_alternatives": []
+}

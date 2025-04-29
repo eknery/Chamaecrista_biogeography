@@ -1,0 +1,28 @@
+{
+    "id": "6848BF88",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1745954178855.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "id": "391a013d2d4d423e89ef50b67f1001f3",
+        "name": "one_fasta",
+        "title": "one_fasta",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450158965,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1745954178855,
+    "read_only": false,
+    "read_only_alternatives": []
+}

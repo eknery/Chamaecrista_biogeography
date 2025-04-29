@@ -20,7 +20,7 @@ for(i in 1:length(file_names) ){
                                     pattern = ".fasta")
 }
 
-########################### INFERING ML TREE ###############################
+############################## INFERING ML TREE ###############################
 
 ## select output dir
 dir_out = "2_sequence_evaluation/ML_trees/"
@@ -35,7 +35,7 @@ for(locus_name in loci_names){
   ### ML fits
   ml_fits = bootstrap.phyDat(
     x = one_fasta, 
-    FUN = function(x)optim.pml(pml(NJ(dist.ml(x)), data = x), model = "GTR"), # pratchet
+    FUN = function(x)optim.pml(pml(NJ(dist.ml(x)), data = x), model = "GTR"), 
     bs = 100
   )
   ### ML trees
