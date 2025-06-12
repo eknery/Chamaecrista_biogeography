@@ -3,59 +3,53 @@ library("rexpokit")
 library("cladoRcpp")
 library("BioGeoBEARS")
 
-source("0_scripts/function_calculate_aicc.R")
-
-load("7_biogeo_results/micro_DEC_0.RData")
-load("7_biogeo_results/micro_DEC_1.RData")
-load("7_biogeo_results/micro_DEC_2.RData")
-
-####################### COMPARE MODELS ###############################
-
-### empty tables to hold the statistical results
-restable = NULL
-teststable = NULL
-
-### likelihood
-lnl0 = get_LnL_from_BioGeoBEARS_results_object(res_dec0)
-lnl1 = get_LnL_from_BioGeoBEARS_results_object(res_dec1)
-lnl2 = get_LnL_from_BioGeoBEARS_results_object(res_dec2)
-LnL_vals = c(lnl0, lnl1,lnl2)
-
-### parameter values
-param0 = extract_params_from_BioGeoBEARS_results_object(
-  results_object= res_dec0, 
-  returnwhat= "table", 
-  addl_params= c("j"), 
-  paramsstr_digits= 4
+### get RData files with models
+rdata_names = list.files(
+  path = paste0(getwd(),"/7_biogeo_results"),
+  pattern = ".Rdata"
 )
 
-param1 = extract_params_from_BioGeoBEARS_results_object(
-  results_object= res_dec1, 
-  returnwhat= "table", 
-  addl_params= c("j"), 
-  paramsstr_digits= 4
+### load all models
+for(i in 1:length(rdata_names)){
+  load(paste0(getwd(),"/7_biogeo_results/", rdata_names[i]))
+}
+
+############################### COMPARE MODELS ###############################
+
+### objects with models
+objs = objects(pattern = "res_")
+
+### fit and estimates from models
+model_vals = list()
+for(i in 1:length(objs)){
+  model_vals[[i]] = extract_params_from_BioGeoBEARS_results_object(
+    results_object= eval(parse(text=objs[i])), 
+    returnwhat= "table", 
+    addl_params= c("j"), 
+    paramsstr_digits= 4
+  )
+}
+
+### table with model info
+model_table = setNames(
+  data.frame(
+    matrix(unlist(model_vals), nrow=length(model_vals), byrow=TRUE)
+    ),
+  colnames(model_vals[[1]])
+)
+rownames(model_table) = objs
+
+### AIC
+model_table$aic = calc_AIC_vals(
+  LnL_vals = model_table$LnL,
+  nparam_vals = model_table$numparams
 )
 
-param2 = extract_params_from_BioGeoBEARS_results_object(
-  results_object= res_dec2, 
-  returnwhat= "table", 
-  addl_params= c("j"), 
-  paramsstr_digits= 4
+### AIC weights
+model_table = AkaikeWeights_on_summary_table(
+    model_table,
+   colname_to_use ="aic", 
+   add_to_table = T
 )
 
-### collect parameter values
-n_param_vals = c(param0$numparams,param1$numparams,param2$numparams)
-
-### calculate AIC
-aic = calc_AIC_vals(
-  LnL_vals = LnL_vals,
-  nparam_vals = n_param_vals
-)
-
-### in a single table
-model_table =as.data.frame(cbind(LnL_vals, n_param_vals, aic))
-
-### akaike weights
-AkaikeWeights_on_summary_table(model_table,
-                               colname_to_use ="aic", 
-                               add_to_table = F)
+round(model_table$aic_wt, 3)

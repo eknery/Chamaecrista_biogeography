@@ -6,7 +6,7 @@ library("cladoRcpp")
 library("BioGeoBEARS")
 
 ### load results
-load("7_biogeo_results/micro_DEC_2.Rdata")
+load("7_biogeo_results/DEC_3.Rdata")
 
 ### phylogenetic tree location
 trfn = "5_posterior/mcc.tree"
@@ -17,7 +17,7 @@ n_tips = Ntip(tr)
 n_anc = tr$Nnode
 
 ### reading range data
-geogfn = "6_biogeo_data/micro_biogeo.data"
+geogfn = "6_biogeo_data/biogeo.data"
 moref(geogfn)
 ### converting phylip format to tipranges
 tipranges = getranges_from_LagrangePHYLIP(lgdata_fn= geogfn)
@@ -64,7 +64,7 @@ statenames = areas_list_to_states_list_new(
 )
 
 ### relative probability of each states for each node
-relprobs_matrix = res_dec2$ML_marginal_prob_each_state_at_branch_top_AT_node
+relprobs_matrix = res_dec3$ML_marginal_prob_each_state_at_branch_top_AT_node
 
 ### get maximum probibility values
 ml_probs = get_ML_probs(relprobs_matrix)
@@ -153,11 +153,11 @@ leg_2 = comb_area_col[sort(names(comb_area_col))[1:9] ]
 leg_3 = comb_area_col[sort(names(comb_area_col))[10:17] ]
 
 ### export pie chart
-tiff("9_figures/biogeo_plot_pie.tiff",
+tiff("figures/biogeo_plot_pie.tiff",
      units="cm", 
      width= 9, 
-     height= 18,
-     res=900)
+     height= 16,
+     res=1200)
 plotTree.datamatrix(
   tree = tr,
   X= states_bin,
@@ -174,6 +174,8 @@ nodelabels(
   piecol = full_col, 
   cex= 0.5
 )
+lines(x=c(28.16, 28.16),y=c(0, 283),lwd=0.8)
+lines(x=c(46.16, 46.16),y=c(0, 283),lwd=0.8)
 add.simmap.legend(
   colors= leg_1,
   fsize= 0.8,
@@ -200,55 +202,3 @@ add.simmap.legend(
 )
 dev.off()
 
-### export square
-tiff("9_figures/biogeo_plot_square.tiff",
-     units="cm", 
-     width= 9, 
-     height= 18,
-     res=900)
-  plotTree.datamatrix(
-    tree = tr,
-    X= states_bin,
-    fsize= 0.15,
-    header = F, 
-    colors = col_list, 
-    space = 0, 
-    xexp = 1.12,
-    yexp = 0.98
-  )
-  nodelabels(
-    pch = 22, 
-    cex= 0.6,
-    col = "black",
-    bg = anc_state_col
-  )
-  add.simmap.legend(
-    colors= leg_1,
-    fsize= 0.8,
-    shape="square",
-    prompt=FALSE,
-    x=0,
-    y=100
-    )
-  add.simmap.legend(
-    colors= leg_2,
-    fsize= 0.8,
-    shape="square",
-    prompt=FALSE,
-    x=10,
-    y=100
-  )
-  add.simmap.legend(
-    colors= leg_3,
-    fsize= 0.8,
-    shape="square",
-    prompt=FALSE,
-    x=30,
-    y=100
-  )
-  axisPhylo(
-    pos= -0.1, 
-    font=3, 
-    cex.axis=0.5
-)
-dev.off()
