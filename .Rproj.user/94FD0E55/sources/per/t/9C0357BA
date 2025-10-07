@@ -1,26 +1,26 @@
 {
-    "id": "414F797D",
-    "path": "~/GitHub/reproductive_allocation_Neotropics/scripts/graphics.R",
+    "id": "9C0357BA",
+    "path": "~/GitHub/Miconia_ngs/scripts/trimming_sequences.R",
     "project_path": null,
     "type": "r_source",
-    "hash": "0",
+    "hash": "1311387001",
     "contents": "",
-    "dirty": false,
-    "created": 1749744996095.0,
+    "dirty": true,
+    "created": 1759787840119.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "405,51",
-        "scrollLine": "390"
+        "cursorPosition": "46,27",
+        "scrollLine": "33"
     },
     "folds": "",
-    "lastKnownWriteTime": 1741831138,
+    "lastKnownWriteTime": 1748611728,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1741831138,
+    "last_content_update": 1759787993370,
     "read_only": false,
     "read_only_alternatives": []
 }
