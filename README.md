@@ -24,5 +24,7 @@ The article
     1. The Maximum Clade Credibility (MCC) tree inferred for five loci sequenced from *Chamaecrista* species and allies;
     
 6. biogeo_data:
-
+    1. *neotropical_shp* The shapefile displaying the biogeographic units by Morrone (2024);
+    2. *sp_area.data* The species-area matrix for biogeographic reconstruction;
+    
     
