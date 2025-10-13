@@ -17,7 +17,7 @@ n_tips = Ntip(tr)
 n_anc = tr$Nnode
 
 ### reading range data
-geogfn = "6_biogeo_data/biogeo.data"
+geogfn = "6_biogeo_data/sp_area.data"
 moref(geogfn)
 ### converting phylip format to tipranges
 tipranges = getranges_from_LagrangePHYLIP(lgdata_fn= geogfn)

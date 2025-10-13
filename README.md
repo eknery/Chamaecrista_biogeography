@@ -4,12 +4,13 @@
 This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of Chamaecrista (Leguminosae) in the Neotropics**.
 The article
 
-1. initial_sequences: 
-    1. The aligned DNA sequences of five loci sequenced from *Chamaecrista* species and allies;
+0. raw_sequences: The non-aligned DNA sequences of five loci sequenced from *Chamaecrista* species and allies;
+
+1. initial_sequences: The aligned DNA sequences of five loci sequenced from *Chamaecrista* species and allies;
     
 2. sequence_evaluation: 
     1. The best-fitting substitution models for five loci sequenced from *Chamaecrista* species and allies
-    2. The bootstrap maximum-likelihood (ML) trees inferred for five loci sequenced from *Chamaecrista* species and allies;
+    2. ml_trees The bootstrap maximum-likelihood (ML) trees inferred for five loci sequenced from *Chamaecrista* species and allies;
     3. The principal coordinate analysis (PCoA) comparing the topology of the bootstrap ML trees;
 
 3. final_sequences:
@@ -24,7 +25,12 @@ The article
     1. The Maximum Clade Credibility (MCC) tree inferred for five loci sequenced from *Chamaecrista* species and allies;
     
 6. biogeo_data:
-    1. *neotropical_shp* The shapefile displaying the biogeographic units by Morrone (2024);
-    2. *sp_area.data* The species-area matrix for biogeographic reconstruction;
+    1. *model_times.txt* The time frames considered in the biogeographic reconstruction;
+    2. *model2_area_allowed* The available areas across time frames for the second biogeographic scenario;
+    3. *model2_dispersal_multi* The dispersal multipliers across time frames for the second biogeographic scenario;
+    4. *model2_area_allowed* The available areas across time frames for the third biogeographic scenario;
+    5. *model3_dispersal_multi* The dispersal multipliers across time frames for the third biogeographic scenario;
+    6. *neotropical_shp* The shapefile displaying the biogeographic units by Morrone (2024);
+    7. *sp_area.data* The species-area matrix for biogeographic reconstruction;
     
     

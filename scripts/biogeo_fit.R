@@ -10,7 +10,7 @@ trfn = "5_posterior/mcc.tree"
 tr = read.tree(file = trfn)
 
 ### reading range data
-geogfn = "6_biogeo_data/biogeo.data"
+geogfn = "6_biogeo_data/sp_area.data"
 moref(geogfn)
 ### converting phylip format to tipranges
 tipranges = getranges_from_LagrangePHYLIP(lgdata_fn= geogfn)
