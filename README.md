@@ -45,8 +45,8 @@ The folders and their content are as follows:
     1. `areas_allowed.xlsx` The area-availability matrices for alternative biogeographic scenarios;
     2. `dispersal_multipliers.xlsx` The dispersal matrices for alternative biogeographic scenarios;
     3. `relprob_matrix.xlsx` The relative probability of each geographic state for extant and ancestral species according to the best-fit beogeographic model;
-    4. `spp_biogeo_data.xlsx` The species-area matrices for alternative biogeographic regionalizations;
-    5. `spp_marker.csv` A matrix with sequenced markers (loci) for each *Chamaecrista* species and allies;
+    4. `sp_biogeo_data.xlsx` The species-area matrices for alternative biogeographic regionalizations;
+    5. `sp_loci.xlsx` A matrix with sequenced markers (loci) for each *Chamaecrista* species and allies;
     
 10. scripts:
     1. All R scripts used in our study, each with its own commented code lines;
