@@ -1,7 +1,7 @@
 # Historical biogeography of neotropical Chamaecrista
 
 ### Description:
-This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of *Chamaecrista* (Leguminosae) in the Neotropics**.
+This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of Chamaecrista (Leguminosae) in the Neotropics**.
 The directories and their content are as follows: 
 
 0. raw_sequences: 
@@ -47,5 +47,8 @@ The directories and their content are as follows:
     3. `relprob_matrix.xlsx` The relative probability of each geographic state for extant and ancestral species according to the best-fit beogeographic model;
     4. `spp_biogeo_data.xlsx` The species-area matrices for alternative biogeographic regionalizations;
     5. `spp_marker.csv` A matrix with sequenced markers (loci) for each *Chamaecrista* species and allies;
+    
+10. scripts:
+    1. All R scripts used in our study, each with its own commented code lines;
     
     
