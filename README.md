@@ -2,7 +2,7 @@
 
 ### Description:
 This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of Chamaecrista (Leguminosae) in the Neotropics**.
-The directories and their content are as follows: 
+The folders and their content are as follows: 
 
 0. raw_sequences: 
     1. Fasta files with the non-aligned DNA sequences of five loci sequenced from *Chamaecrista* species and allies;
