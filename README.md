@@ -41,7 +41,7 @@ The folders and their content are as follows:
 8. figures:
     1. Figures produced by our scripts and their edited versions;
 
-9. files:
+9. supporting_information:
     1. `areas_allowed.xlsx` The area-availability matrices for alternative biogeographic scenarios;
     2. `dispersal_multipliers.xlsx` The dispersal matrices for alternative biogeographic scenarios;
     3. `relprob_matrix.xlsx` The relative probability of each geographic state for extant and ancestral species according to the best-fit beogeographic model;
