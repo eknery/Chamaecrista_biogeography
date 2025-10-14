@@ -39,7 +39,7 @@ The directories and their content are as follows:
     1. Rdata files with the fitted biogeographic models;
     
 8. figures:
-    1. Figures produced by our scripts and their manually edited versions;
+    1. Figures produced by our scripts and their edited versions;
 
 9. files:
     1. `areas_allowed.xlsx` The area-availability matrices for alternative biogeographic scenarios;
