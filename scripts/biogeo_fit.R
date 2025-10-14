@@ -487,57 +487,57 @@ bay2 = define_BioGeoBEARS_run()
 bay2$trfn = trfn
 
 ### location of the geography text file
-bay1$geogfn = geogfn
+bay2$geogfn = geogfn
 
 ### Input the maximum range size
-bay1$max_range_size = max_range_size
+bay2$max_range_size = max_range_size
 
 ### Min to treat tip as a direct ancestor (no speciation event)
-bay1$min_branchlength = 0.001   
+bay2$min_branchlength = 0.001   
 
 ### set to FALSE for e.g. DEC* model, DEC*+J, etc.
-bay1$include_null_range = TRUE  
+bay2$include_null_range = TRUE  
 
 #### Set up BAYAREALIKE model
 ## No subset sympatry
-bay1$BioGeoBEARS_model_object@params_table["s","type"] = "fixed"
-bay1$BioGeoBEARS_model_object@params_table["s","init"] = 0.0
-bay1$BioGeoBEARS_model_object@params_table["s","est"] = 0.0
+bay2$BioGeoBEARS_model_object@params_table["s","type"] = "fixed"
+bay2$BioGeoBEARS_model_object@params_table["s","init"] = 0.0
+bay2$BioGeoBEARS_model_object@params_table["s","est"] = 0.0
 
 ## No vicariance
-bay1$BioGeoBEARS_model_object@params_table["v","type"] = "fixed"
-bay1$BioGeoBEARS_model_object@params_table["v","init"] = 0.0
-bay1$BioGeoBEARS_model_object@params_table["v","est"] = 0.0
+bay2$BioGeoBEARS_model_object@params_table["v","type"] = "fixed"
+bay2$BioGeoBEARS_model_object@params_table["v","init"] = 0.0
+bay2$BioGeoBEARS_model_object@params_table["v","est"] = 0.0
 
 ## Adjust linkage between parameters
-bay1$BioGeoBEARS_model_object@params_table["ysv","type"] = "1-j"
-bay1$BioGeoBEARS_model_object@params_table["ys","type"] = "ysv*1/1"
-bay1$BioGeoBEARS_model_object@params_table["y","type"] = "1-j"
+bay2$BioGeoBEARS_model_object@params_table["ysv","type"] = "1-j"
+bay2$BioGeoBEARS_model_object@params_table["ys","type"] = "ysv*1/1"
+bay2$BioGeoBEARS_model_object@params_table["y","type"] = "1-j"
 
 ## Only sympatric/range-copying (y) events allowed
-bay1$BioGeoBEARS_model_object@params_table["mx01y","type"] = "fixed"
-bay1$BioGeoBEARS_model_object@params_table["mx01y","init"] = 0.9999
-bay1$BioGeoBEARS_model_object@params_table["mx01y","est"] = 0.9999
+bay2$BioGeoBEARS_model_object@params_table["mx01y","type"] = "fixed"
+bay2$BioGeoBEARS_model_object@params_table["mx01y","init"] = 0.9999
+bay2$BioGeoBEARS_model_object@params_table["mx01y","est"] = 0.9999
 
 ### check
-check_BioGeoBEARS_run(bay1)
+check_BioGeoBEARS_run(bay2)
 
 ### default settings to get ancestral states
-bay1$return_condlikes_table = TRUE
-bay1$calc_TTL_loglike_from_condlikes_table = TRUE
-bay1$calc_ancprobs = TRUE    # get ancestral states from optim run
+bay2$return_condlikes_table = TRUE
+bay2$calc_TTL_loglike_from_condlikes_table = TRUE
+bay2$calc_ancprobs = TRUE    # get ancestral states from optim run
 
 ### computing options
-bay1$num_cores_to_use = 5
+bay2$num_cores_to_use = 5
 
 ### fitting DIVA !
-res_bay1 = bears_optim_run(bay1)
+res_bay2 = bears_optim_run(bay2)
 
 ### plot
-fast_plot(res = res_bay1)
+fast_plot(res = res_bay2)
 
 ### save fitted model
-save(res_bay1, file="7_biogeo_results/BAYAREA_1.Rdata")
+save(res_bay2, file="7_biogeo_results/BAYAREA_2.Rdata")
 
 ################################### BAYAREALIKE 3 ###############################
 
