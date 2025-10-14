@@ -12,7 +12,7 @@ The directories and their content are as follows:
     
 2. sequence_evaluation: 
     1. `best_sub_models.csv` The best-fitting substitution models for five loci sequenced from *Chamaecrista*` species and allies
-    2. `ml_trees` The bootstrap maximum-likelihood (ML) trees inferred for five loci sequenced from *Chamaecrista* species and allies;
+    2. `ml_trees` Folder with the bootstrap maximum-likelihood (ML) trees inferred for five loci sequenced from *Chamaecrista* species and allies;
     3. `pcoa_ml_trees.tiff` The principal coordinate analysis (PCoA) comparing the topology of the bootstrap ML trees;
 
 3. final_sequences:

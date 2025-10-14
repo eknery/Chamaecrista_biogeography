@@ -7,8 +7,8 @@ if(!require("seqinr")) install.packages("seqinr"); library("seqinr")
 if(!require("ips")) install.packages("ips"); library("ips")
 
 ### file names
-dir_input = "4_ml_trees/"
-tree_name = "ml_iq_consensus.tree"
+dir_input = "4_iqtree/"
+tree_name = "ml_iq.tree"
 
 ### import
 ctree = read.tree(file = paste0(dir_input, tree_name))
@@ -26,8 +26,8 @@ ctree$edge.length = NULL
 ctree$node.label = NULL
 
 ### export
-dir_out = "4_ml_trees/clean_trees/"
+dir_out = "4_iqtree/"
 write.tree(phy =  ctree,
-           file = paste0(dir_out,"ml_", cutoff,".tree")
+           file = paste0(dir_out,"ml_iq_", cutoff,".tree")
            )
            
