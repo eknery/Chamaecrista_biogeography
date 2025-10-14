@@ -1,7 +1,7 @@
 # Historical biogeography of neotropical Chamaecrista
 
 ### Description:
-This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of Chamaecrista (Leguminosae) in the Neotropics**.
+This repository has the data and code used in the article **From rainforests to open-vegetation: The biogeographic history of *Chamaecrista* (Leguminosae) in the Neotropics**.
 The directories and their content are as follows: 
 
 0. raw_sequences: 
