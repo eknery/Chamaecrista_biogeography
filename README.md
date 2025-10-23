@@ -42,11 +42,12 @@ The folders and their content are as follows:
     1. Figures produced by our scripts and their edited versions;
 
 9. supporting_information:
-    1. `areas_allowed.xlsx` The area-availability matrices for alternative biogeographic scenarios;
-    2. `dispersal_multipliers.xlsx` The dispersal matrices for alternative biogeographic scenarios;
-    3. `relprob_matrix.xlsx` The relative probability of each geographic state for extant and ancestral species according to the best-fit beogeographic model;
-    4. `sp_biogeo_data.xlsx` The species-area matrices for alternative biogeographic regionalizations;
-    5. `sp_loci.xlsx` A matrix with sequenced loci for each *Chamaecrista* species and allies;
+    1. `Supporting_Information_S1.docx` The protocol for DNA extraction, amplification and sequencing;
+    2. `Supporting_Information_S2.tiff` The graphical display of the ML tree inferred from the concatenated loci;
+    3. `Supporting_Information_S3.docx` The biogeographic regionalization based on the occurrences of *Chamaecrista* species;
+    4. `Supporting_Information_S4.xlsx` The distribution of *Chamaecrista* species and allies in biogeographic areas; 
+    5. `Supporting_Information_S5.xlsx` The dispersal multipliers across time frames for the second and third biogeographic scenario;
+    6. `Supporting_Information_S6.xlsx` The dispersal rates among biogeographic areas according to the best-fit model;
     
 10. scripts:
     1. All R scripts used in our study, each with its own commented code lines;
