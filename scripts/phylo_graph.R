@@ -13,11 +13,9 @@ beast_tree@data$posterior_lim[beast_tree@data$posterior >= 0.95] = "*"
 beast_tree@data$posterior_lim[beast_tree@data$posterior < 0.95] = NA
 
 ### export pie chart
-tiff("figures/phylo_plot.tiff",
-     units="cm", 
+pdf("phylo_plot.pdf",
      width= 8, 
-     height= 14,
-     res= 900)
+     height= 14)
 ggtree(
   beast_tree,
   ladderize = T,
@@ -37,7 +35,7 @@ ggtree(
     size=2
   ) +
   geom_tiplab(
-    size = 0.5,
+    size = 1,
     offset = 0.1,
     align = TRUE
   ) +

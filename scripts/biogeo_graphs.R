@@ -153,15 +153,13 @@ leg_2 = comb_area_col[sort(names(comb_area_col))[1:9] ]
 leg_3 = comb_area_col[sort(names(comb_area_col))[10:17] ]
 
 ### export pie chart
-tiff("figures/biogeo_plot_pie.tiff",
-     units="cm", 
+pdf("8_figures/biogeo_plot_pie.pdf",
      width= 9, 
-     height= 16,
-     res=1200)
+     height= 16)
 plotTree.datamatrix(
   tree = tr,
   X= states_bin,
-  fsize= 0.15,
+  fsize= 0.40,
   header = F, 
   colors = col_list, 
   space = 0, 

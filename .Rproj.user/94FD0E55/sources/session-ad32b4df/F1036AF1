@@ -1,0 +1,26 @@
+{
+    "id": "F1036AF1",
+    "path": "~/GitHub/Chamaecrista_biogeography/scripts/shapefile_map.R",
+    "project_path": "scripts/shapefile_map.R",
+    "type": "r_source",
+    "hash": "3599234511",
+    "contents": "",
+    "dirty": false,
+    "created": 1762259544702.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "81,5",
+        "scrollLine": "77"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1762260010,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1762260010032,
+    "read_only": false,
+    "read_only_alternatives": []
+}

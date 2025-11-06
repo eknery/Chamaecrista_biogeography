@@ -1,0 +1,27 @@
+{
+    "id": "AC174489",
+    "path": "~/GitHub/Chamaecrista_biogeography/scripts/phylo_graph.R",
+    "project_path": "scripts/phylo_graph.R",
+    "type": "r_source",
+    "hash": "340356348",
+    "contents": "",
+    "dirty": true,
+    "created": 1762259051263.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "47,0",
+        "scrollLine": "27"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1762259308,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1762259135096,
+    "read_only": false,
+    "read_only_alternatives": []
+}

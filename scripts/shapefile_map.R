@@ -79,8 +79,10 @@ province_col = c(
 )
 
 ### export dec
-tiff("figures/map.tiff",
-     units="cm", width=5, height=5, res=1200)
+pdf("8_figures/map.pdf",
+    width=5,
+    height=5
+    )
 ggplot(shp)+
   geom_sf(aes(fill=Provincias),
           col = "black") +
